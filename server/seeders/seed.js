@@ -10,9 +10,24 @@ db.once('open', async () => {
     await User.deleteMany({});
     await Category.deleteMany({});
     await User.create(userSeeds);
-    await Gauge.create(gaugeSeeds);
     await Category.create(categorySeeds);
-    
+    await Gauge.create(gaugeSeeds);
+
+    // for (let i = 0; i < categorySeeds.length; i++) {
+    //   const { _id, category_name } = await Category.create(categorySeeds[i]);
+    //   const gauge = await Gauge.findOneAndUpdate(
+    //     { gauge_name: category_name },
+    //     {
+    //       $addToSet: {
+    //         category: _id,
+    //       },
+    //     }
+    //   );
+
+    // }
+
+
+
   } catch (err) {
     console.error(err);
     process.exit(1);

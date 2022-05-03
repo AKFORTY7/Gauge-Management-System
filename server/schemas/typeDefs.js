@@ -3,7 +3,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
  type Category {
     _id: ID
-    name: String
+    category_name: String
   }
   type User {
     _id: ID
@@ -14,7 +14,8 @@ const typeDefs = gql`
 
   type Gauge {
     _id: ID
-    category: String!
+    gauge_name: String
+    category: [Category]
     current_inventory: Int!
     quantity_borrowed: Int
     inhouse_PN:  String
@@ -30,6 +31,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
+    gauges: [Gauge]
+    categories: [Category]
   }
 
   type Mutation {

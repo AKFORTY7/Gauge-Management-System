@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Gauge, Category } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -9,6 +9,14 @@ const resolvers = {
     },
     user: async (parent, { username }) => {
       return User.findOne({ username });
+    },
+
+    gauges: async () => {
+      return Gauge.find();
+    },
+
+    categories: async () => {
+      return Category.find();
     },
 
 

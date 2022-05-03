@@ -1,11 +1,14 @@
 [
     {
-        "name": "Pin Gauge"
+      
+        "category_name": "Pin Gauge"
     },
     {
-        "name": "Ring Gauge"
+        
+        "category_name": "Thread Ring Gauge"
     },
     {
-        "name": "Plug Gauge"
+       
+        "category_name": "Thread Plug Gauge"
     }
 ]
