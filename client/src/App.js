@@ -53,23 +53,23 @@ function App() {
                 element={<Home />}
               />
               <Route 
-                path="/login" 
+                path="/login"
                 element={<Login />}
               />
               <Route 
-                path="/signup" 
+                path="/signup"
                 element={<Signup />}
               />
               <Route 
-                path="/me" 
+                path="/me"
                 element={<Profile />}
               />
               <Route 
-                path="/profiles/:username" 
+                path="/profiles/:username"
                 element={<Profile />}
               />
               <Route 
-                path="/thoughts/:thoughtId" 
+                path="/thoughts/:thoughtId"
                 element={<SingleThought />}
               />
             </Routes>

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "6.05",
+    "category": "Pin Gauge",
+    "current_inventory": 2,
+    "quantity_borrowed": 0,
+    "inhouse_PN": "50-100-1234"
+  },
+  {
+    "name": "M2 x 1.0 - 6g",
+    "category": "Ring Gauge",
+    "current_inventory": 2,
+    "quantity_borrowed": 0,
+    "inhouse_PN": "50-100-4567"
+  },
+  {
+    "name": "M6 x 1.0 - 6h",
+    "category": "Plug Gauge",
+    "current_inventory": 3,
+    "quantity_borrowed": 0,
+    "inhouse_PN": "50-100-1597"
+  }
+]
