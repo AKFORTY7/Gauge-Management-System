@@ -15,11 +15,11 @@ const typeDefs = gql`
   type Gauge {
     _id: ID
     gauge_name: String
-    category: [Category]
+    category: Category
     current_inventory: Int!
     quantity_borrowed: Int
     inhouse_PN:  String
-    createAt: String
+    createdAt: String
   }
 
 
@@ -38,6 +38,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    
     }
 `;
 

@@ -1,23 +1,24 @@
 [
   {
     "gauge_name": "6.05",
-
+   
     "current_inventory": 2,
     "quantity_borrowed": 0,
     "inhouse_PN": "50-100-1234"
   },
   {
     "gauge_name": "M2 x 1.0 - 6g",
-
+ 
     "current_inventory": 2,
     "quantity_borrowed": 0,
     "inhouse_PN": "50-100-4567"
   },
   {
     "gauge_name": "M6 x 1.0 - 6h",
-
+   
     "current_inventory": 3,
     "quantity_borrowed": 1,
     "inhouse_PN": "50-100-1597"
   }
+ 
 ]

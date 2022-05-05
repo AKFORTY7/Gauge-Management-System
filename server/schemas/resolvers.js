@@ -12,7 +12,7 @@ const resolvers = {
     },
 
     gauges: async () => {
-      return Gauge.find();
+      return await Gauge.find().populate("category");
     },
 
     categories: async () => {
