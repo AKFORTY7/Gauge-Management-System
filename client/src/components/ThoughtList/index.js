@@ -1,54 +1,72 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
-const ThoughtList = ({
-  thoughts,
-  title,
-  showTitle = true,
-  showUsername = true,
+const GaugeList = ({
+  gauge_name,
+  category,
+  current_inventory,
+  quantity_borrowed,
+  inhouse_PN,
+  createdAt
+
 }) => {
-  if (!thoughts.length) {
-    return <h3>No Thoughts Yet</h3>;
+  if (!gauge_name.length) {
+    return <h3>No Gauges Yet</h3>;
   }
 
   return (
     <div>
-      {showTitle && <h3>{title}</h3>}
-      {thoughts &&
-        thoughts.map((thought) => (
-          <div key={thought._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+      {/* {showTitle && <h3>{title}</h3>} */}
+      {
+      gauge_name &&
+        gauge_name.map((gauge) => (
+          <div key={gauge._id} className="card mb-3">
+            {/* A portion of the code had been removed from here */}
+          {gauge.gauge_name}
+            {/* {quantity_borrowed}
+            {inhouse_PN}
+            {createdAt} */}
+
+          </div>
+        ))}
+        {/* This is the code that had been removed */}
+         {/* <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${thought.thoughtAuthor}`}
+                  to={`/profiles/${gauge.thoughtAuthor}`}
                 >
-                  {thought.thoughtAuthor} <br />
+                  {gauge.thoughtAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    had this thought on {thought.createdAt}
+                    had this thought on {gauge.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You had this thought on {thought.createdAt}
+                    You had this thought on {gauge.createdAt}
                   </span>
                 </>
               )}
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{thought.thoughtText}</p>
+              <p>{gauge.thoughtText}</p>
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${thought._id}`}
+              to={`/thoughts/${gauge._id}`}
             >
               Join the discussion on this thought.
-            </Link>
-          </div>
-        ))}
+            </Link> */}
     </div>
+
+
+    
   );
 };
 
-export default ThoughtList;
+
+
+
+
+export default GaugeList;

@@ -15,12 +15,15 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_GAUGES = gql`
+  query getGauges {
+    gauges {
       _id
-      thoughtText
-      thoughtAuthor
+      gauge_name
+      category
+      current_inventory
+      quantity_borrowed
+      inhouse_PN
       createdAt
     }
   }
