@@ -6,30 +6,25 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
 
 export const QUERY_GAUGES = gql`
-  query getGauges {
-    gauges {
+query gauges {
+  gauges {
+    _id
+    gauge_name
+    category {
       _id
-      gauge_name
-      category {
-        _id
-        category_name
-      }
-      current_inventory
-      quantity_borrowed
-      inhouse_PN
-      createdAt
+      category_name
     }
+    current_inventory
+    quantity_borrowed
+    inhouse_PN
+    createdAt
   }
+}
 `;
 
 export const QUERY_SINGLE_THOUGHT = gql`

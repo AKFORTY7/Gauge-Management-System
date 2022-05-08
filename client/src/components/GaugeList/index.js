@@ -2,19 +2,21 @@ import React from 'react';
 // Import `<Link>` component from React Router for internal hyperlinks
 import { Link } from 'react-router-dom';
 
-const ThoughtList = ({ thoughts, title }) => {
-  if (!thoughts.length) {
+const ThoughtList = ({ gauges, title }) => {
+  if (!gauges.length) {
     return <h3>No Thoughts Yet</h3>;
   }
 
   return (
     <div>
       <h3>{title}</h3>
-      {thoughts &&
-        thoughts.map((thought) => (
+      {gauges &&
+        gauges.map((thought) => (
+          
           <div key={thought._id} className="card mb-3">
+           
             <h4 className="card-header bg-primary text-light p-2 m-0">
-              {thought.thoughtAuthor} <br />
+              {thought.gauge_name} <br />
               <span style={{ fontSize: '1rem' }}>
                 had this thought on {thought.createdAt}
               </span>

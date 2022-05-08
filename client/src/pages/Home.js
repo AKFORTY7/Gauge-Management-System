@@ -8,7 +8,9 @@ import { QUERY_GAUGES } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_GAUGES);
-  const thoughts = data?.thoughts || [];
+  const gauges = data?.gauges || [];
+
+ 
 
   return (
     <main>
@@ -24,7 +26,7 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <ThoughtList
-              thoughts={thoughts}
+              gauges={gauges}
               title="Some Feed for Thought(s)..."
             />
           )}
