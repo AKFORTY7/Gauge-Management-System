@@ -13,10 +13,7 @@ const gaugeSchema = new Schema({
   {
     type: Schema.Types.ObjectId,
     ref: 'Category',
-
-  }
-
-  ,
+  },
   current_inventory: {
     type: Number,
     required: true,

@@ -11,27 +11,20 @@ db.once('open', async () => {
     await Category.deleteMany({});
     await User.create(userSeeds);
     await Category.create(categorySeeds);
-
-    // gaugeSeeds[0] = {category: "6273871cb3958e177054afb5"};
-
     await Gauge.create(gaugeSeeds);
 
-    const filter = { gauge_name: "6.05"};
-    const update = { category: "6273871cb3958e177054afb5"};
-    let doc = await Gauge.findOneAndUpdate(filter, update);
- 
-   
+    // for (let i = 0; i < categorySeeds.length; i++) {
+    //   const { _id, category_name } = await Category.create(categorySeeds[i]);
+    //   const gauge = await Gauge.findOneAndUpdate(
+    //     { gauge_name: category_name },
+    //     {
+    //       $addToSet: {
+    //         category: _id,
+    //       },
+    //     }
+    //   );
 
-    const filter1 = { gauge_name: "M2 x 1.0 - 6g"};
-    const update1 = { category: "627389e03943dce50d07e272"};
-    doc = await Gauge.findOneAndUpdate(filter1, update1);
-
-    const filter2 = { gauge_name: "M6 x 1.0 - 6h"};
-    const update2 = { category: "627389f618ef6964e4af6e7a"};
-    doc = await Gauge.findOneAndUpdate(filter2, update2);
-  
-
-
+    // }
 
 
 

@@ -18,9 +18,10 @@ export const QUERY_USER = gql`
 export const QUERY_GAUGES = gql`
   query getGauges {
     gauges {
-      _id
       gauge_name
-      category
+      category {
+        category_name
+      }
       current_inventory
       quantity_borrowed
       inhouse_PN

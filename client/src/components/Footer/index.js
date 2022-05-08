@@ -16,7 +16,16 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          Reynan Kanindot
+          Made with{' '}
+          <span
+            className="emoji"
+            role="img"
+            aria-label="heart"
+            aria-hidden="false"
+          >
+            ❤️
+          </span>{' '}
+          by the Tech Thoughts team.
         </h4>
       </div>
     </footer>
