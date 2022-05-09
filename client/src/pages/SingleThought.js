@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import CommentList from '../components/CommentList';
-import CommentForm from '../components/CommentForm';
+//import CommentList from '../components/CommentList';
+//import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_GAUGE } from '../utils/queries';
 
@@ -20,15 +20,24 @@ const SingleThought = () => {
 
   const gauge = data?.gauge || {};
 
+
   if (loading) {
     return <div>Loading...</div>;
   }
+  console.log(data);
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-        {gauge.gauge_name} <br />
+
+        Name:     {gauge.gauge_name} <br />
+
         <span style={{ fontSize: '1rem' }}>
-          had this thought on {gauge.createdAt}
+
+          Category: {gauge.category.category_name} <br />
+          In-stock: {gauge.current_inventory} <br />
+          Checked Out: {gauge.quantity_borrowed} <br />
+          gauge was created last {gauge.createdAt}
+
         </span>
       </h3>
       <div className="bg-light py-4">
@@ -45,12 +54,12 @@ const SingleThought = () => {
         </blockquote>
       </div>
 
-      <div className="my-5">
-        <CommentList comments={gauge.gauge_name} />
+      {/* <div className="my-5">
+        <CommentList gauges={gauge.gauge_name} />
       </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <CommentForm gaugeId={gauge._id} />
-      </div>
+      </div> */}
     </div>
   );
 };

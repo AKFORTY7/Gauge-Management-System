@@ -69,7 +69,7 @@ function App() {
                 element={<Profile />}
               />
               <Route 
-                path="/gauges/:gaugesId"
+                path="/gauges/:gaugeId"
                 element={<SingleThought />}
               />
             </Routes>

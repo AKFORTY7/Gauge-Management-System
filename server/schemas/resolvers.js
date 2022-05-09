@@ -21,8 +21,8 @@ const resolvers = {
       return Category.find();
     },
 
-    gauge: async (_, { gauge_name }) => {
-      return Gauge.findOne({ gauge_name }).populate('category');
+    gauge: async (_, { gaugeId }) => {
+      return Gauge.findOne({ _id: gaugeId }).populate('category');
     },
 
     // gauge: async (_, { gauge_name }) => {

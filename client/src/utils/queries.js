@@ -20,8 +20,8 @@ query categories {
 `;
 
 export const QUERY_GAUGES = gql`
-query gauges {
-  gauges {
+  query gauges {
+    gauges {
     _id
     gauge_name
     category {
@@ -32,14 +32,15 @@ query gauges {
     quantity_borrowed
     inhouse_PN
     createdAt
+    }
   }
-}
 `;
 
 
 export const QUERY_SINGLE_GAUGE = gql`
-  query getSingleGauge($gaugeName: String!) {
-  gauge(gauge_name: $gaugeName) {
+  query gauge ($gaugeId: ID!) {
+    gauge(gaugeId: $gaugeId) {
+    _id
     gauge_name
     category {
       _id
@@ -49,8 +50,8 @@ export const QUERY_SINGLE_GAUGE = gql`
     quantity_borrowed
     inhouse_PN
     createdAt
+    }
   }
-}
 `;
 
 // export const QUERY_SINGLE_THOUGHT = gql`
