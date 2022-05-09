@@ -33,6 +33,7 @@ const typeDefs = gql`
     user(username: String!): User
     gauges: [Gauge]
     categories: [Category]
+    gauge(gauge_name: String!): Gauge
   }
 
   type Mutation {
