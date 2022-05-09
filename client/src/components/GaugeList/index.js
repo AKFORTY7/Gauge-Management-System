@@ -25,8 +25,8 @@ const ThoughtList = ({ gauges, title }) => {
           </h4>
           <div className="card-body bg-light p-2">
             <span style={{ fontSize: '1rem' }}>
-              Current inventory: {gauge.current_inventory} pc(s) <br />
-              Quantity borrowed:  {gauge.quantity_borrowed} pc(s)
+              {/* Current inventory: {gauge.current_inventory} pc(s) <br />
+              Quantity borrowed:  {gauge.quantity_borrowed} pc(s) */}
             </span>
           </div>
           {/* Create a link to this thought's page to view its comments using `<Link>` component */}
