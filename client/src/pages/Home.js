@@ -31,7 +31,7 @@ const Home = () => {
             <ThoughtList
               gauges={gauges}
               categories = {categories}
-              title="Some Feed for Thought(s)..."
+              title="Gauge List..."
             />
           )}
         </div>

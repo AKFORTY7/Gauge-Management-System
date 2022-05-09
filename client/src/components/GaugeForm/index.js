@@ -56,7 +56,7 @@ const ThoughtForm = () => {
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Search:</h3>
 
       <p
         className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''

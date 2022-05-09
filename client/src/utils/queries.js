@@ -37,21 +37,20 @@ query gauges {
 `;
 
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_GAUGE = gql`
+  query getSingleGauge($gaugeName: String!) {
+  gauge(gauge_name: $gaugeName) {
+    gauge_name
+    category {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+      category_name
     }
+    current_inventory
+    quantity_borrowed
+    inhouse_PN
+    createdAt
   }
+}
 `;
 
 // export const QUERY_SINGLE_THOUGHT = gql`

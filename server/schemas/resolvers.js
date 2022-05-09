@@ -12,7 +12,9 @@ const resolvers = {
     },
 
     gauges: async () => {
-      return Gauge.find().populate('category');
+      return Gauge.find()
+      .populate('category')
+      .sort({gauge_name: 1});
     },
 
     categories: async () => {
