@@ -10,6 +10,15 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_CATEGORIES = gql`
+query categories {
+  categories {
+    _id
+    category_name
+  }
+}
+`;
+
 export const QUERY_GAUGES = gql`
 query gauges {
   gauges {
