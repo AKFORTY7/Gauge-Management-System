@@ -36,6 +36,7 @@ query gauges {
 }
 `;
 
+
 export const QUERY_SINGLE_THOUGHT = gql`
   query getSingleThought($thoughtId: ID!) {
     thought(thoughtId: $thoughtId) {
@@ -52,6 +53,23 @@ export const QUERY_SINGLE_THOUGHT = gql`
     }
   }
 `;
+
+// export const QUERY_SINGLE_THOUGHT = gql`
+//   query getSingleThought($thoughtId: ID!) {
+//     thought(thoughtId: $thoughtId) {
+//       _id
+//       thoughtText
+//       thoughtAuthor
+//       createdAt
+//       comments {
+//         _id
+//         commentText
+//         commentAuthor
+//         createdAt
+//       }
+//     }
+//   }
+// `;
 
 export const QUERY_ME = gql`
   query me {
