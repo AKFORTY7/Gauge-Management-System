@@ -5,11 +5,19 @@ const typeDefs = gql`
     _id: ID
     category_name: String
   }
+
   type User {
     _id: ID
     username: String!
     email: String!
     password: String!
+  }
+
+  type Admin{
+    _id: ID
+    adminName: String!
+    adminEmail: String!
+    adminPassword: String!
   }
 
   type Gauge {
@@ -22,15 +30,24 @@ const typeDefs = gql`
     createdAt: String
   }
 
-
   type Auth {
     token: ID!
     user: User
   }
 
+  type AuthAdmin {
+    token: ID!
+    admin: Admin
+  }
+
+
+
+
   type Query {
     users: [User]
     user(username: String!): User
+    admins: [Admin]
+    admin(adminName: String!): Admin
     gauges: [Gauge]
     categories: [Category]
     gauge(gaugeId: ID!): Gauge
@@ -38,8 +55,10 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    }
+    login(email: String!, password: String!): Auth 
+    addAdmin(adminName: String!, adminEmail: String!, adminPassword: String!): AuthAdmin
+    adminlogin(adminEmail: String!, adminPassword: String!): AuthAdmin
+  }
 `;
 
 module.exports = typeDefs;

@@ -2,19 +2,19 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const adminSchema = new Schema({
-  adminname: {
+  adminName: {
     type: String,
     required: true,
     unique: true,
     trim: true,
   },
-  email: {
+  adminEmail: {
     type: String,
     required: true,
     unique: true,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
-  password: {
+  adminPassword: {
     type: String,
     required: true,
     minlength: 5,
@@ -24,14 +24,14 @@ const adminSchema = new Schema({
 adminSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
+    this.adminPassword = await bcrypt.hash(this.adminPassword, saltRounds);
   }
 
   next();
 });
 
-adminSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+adminSchema.methods.isCorrectPassword = async function (adminPassword) {
+  return bcrypt.compare(adminPassword, this.adminPassword);
 };
 
 const Admin = model('Admin', adminSchema);

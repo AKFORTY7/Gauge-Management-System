@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Gauge, Category } = require('../models');
+const { User, Gauge, Category, Admin, Tracking } = require('../models');
 const { signToken } = require('../utils/auth');
+const { adminSignToken } = require('../utils/authadmin');
 
 const resolvers = {
   Query: {
@@ -11,10 +12,18 @@ const resolvers = {
       return User.findOne({ username });
     },
 
+    admins: async () => {
+      return Admin.find();
+    },
+    admin: async (_, { adminname }) => {
+      return Admin.findOne({ adminname });
+    },
+
+
     gauges: async () => {
       return Gauge.find()
-      .populate('category')
-      .sort({gauge_name: 1});
+        .populate('category')
+        .sort({ gauge_name: 1 });
     },
 
     categories: async () => {
@@ -24,10 +33,6 @@ const resolvers = {
     gauge: async (_, { gaugeId }) => {
       return Gauge.findOne({ _id: gaugeId }).populate('category');
     },
-
-    // gauge: async (_, { gauge_name }) => {
-    //   return Gauge.findOne({ gauge_name });
-    // },
 
 
     // thoughts: async (parent, { username }) => {
@@ -44,12 +49,20 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
+    addUser: async (_, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
+
+    addAdmin: async (_, { adminName, adminEmail, adminPassword }) => {
+      const admin = await Admin.create({ adminName, adminEmail, adminPassword });
+      const token = adminSignToken(admin);
+      return { token, admin };
+    },
+
+
+    login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -66,6 +79,29 @@ const resolvers = {
 
       return { token, user };
     },
+
+
+    adminlogin: async (_, { adminEmail, adminPassword }) => {
+      const admin = await Admin.findOne({ adminEmail });
+
+      if (!admin) {
+        throw new AuthenticationError('No admin found with this email address');
+      }
+
+      const correctPw = await admin.isCorrectPassword(adminPassword);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = adminSignToken(admin);
+
+      return { token, admin };
+    },
+
+
+
+
     // addThought: async (parent, { thoughtText }, context) => {
     //   if (context.user) {
     //     const thought = await Thought.create({
