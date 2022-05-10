@@ -30,10 +30,10 @@ const Header = () => {
           ) : (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/login">
-                Login
+                User Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
+              <Link className="btn btn-lg btn-light m-2" to="/admin">
+                Admin Login
               </Link>
             </>
           )}

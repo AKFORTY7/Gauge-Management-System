@@ -17,9 +17,9 @@ db.once('open', async () => {
     await Gauge.create(gaugeSeeds);
     await Admin.create(adminSeeds);
 
-    const doc = await Gauge.findOneAndUpdate({gauge_name: "6.05"} , {category: "627a448c2a4a7dba93910a2d"});
-    const doc1 = await Gauge.findOneAndUpdate({gauge_name: "M2 x 1.0 - 6g"} , {category: "627a448c2a4a7dba93910a2e"});
-    const doc2 = await Gauge.findOneAndUpdate({gauge_name: "M6 x 1.0 - 6h"} , {category: "627a448c2a4a7dba93910a2f"});
+    await Gauge.findOneAndUpdate({ gauge_name: "6.05" }, { category: "627a448c2a4a7dba93910a2d" });
+    await Gauge.findOneAndUpdate({ gauge_name: "M2 x 1.0 - 6g" }, { category: "627a448c2a4a7dba93910a2e" });
+    await Gauge.findOneAndUpdate({ gauge_name: "M6 x 1.0 - 6h" }, { category: "627a448c2a4a7dba93910a2f" });
 
 
 
