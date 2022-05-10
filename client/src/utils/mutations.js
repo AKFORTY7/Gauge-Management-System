@@ -36,6 +36,18 @@ export const ADD_GAUGE = gql`
   }
 `;
 
+export const BORROW_GAUGE = gql`
+  mutation addThought($gaugeText: String!) {
+    addgauge(gaugeText: $gaugeText) {
+      _id
+      gauge_name
+      category
+      current_inventory
+      inhouse_PN
+    }
+  }
+`;
+
 export const ADD_COMMENT = gql`
   mutation addComment($thoughtId: ID!, $commentText: String!) {
     addComment(thoughtId: $thoughtId, commentText: $commentText) {
