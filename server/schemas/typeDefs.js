@@ -40,9 +40,6 @@ const typeDefs = gql`
     admin: Admin
   }
 
-
-
-
   type Query {
     users: [User]
     user(username: String!): User

@@ -10,23 +10,16 @@ db.once('open', async () => {
     await Gauge.deleteMany({});
     await User.deleteMany({});
     await Category.deleteMany({});
+    await Admin.deleteMany({});
+
     await User.create(userSeeds);
     await Category.create(categorySeeds);
     await Gauge.create(gaugeSeeds);
     await Admin.create(adminSeeds);
 
-    // for (let i = 0; i < categorySeeds.length; i++) {
-    //   const { _id, category_name } = await Category.create(categorySeeds[i]);
-    //   const gauge = await Gauge.findOneAndUpdate(
-    //     { gauge_name: category_name },
-    //     {
-    //       $addToSet: {
-    //         category: _id,
-    //       },
-    //     }
-    //   );
-
-    // }
+    const doc = await Gauge.findOneAndUpdate({gauge_name: "6.05"} , {category: "627a448c2a4a7dba93910a2d"});
+    const doc1 = await Gauge.findOneAndUpdate({gauge_name: "M2 x 1.0 - 6g"} , {category: "627a448c2a4a7dba93910a2e"});
+    const doc2 = await Gauge.findOneAndUpdate({gauge_name: "M6 x 1.0 - 6h"} , {category: "627a448c2a4a7dba93910a2f"});
 
 
 

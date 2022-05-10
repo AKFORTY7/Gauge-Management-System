@@ -31,7 +31,8 @@ const resolvers = {
     },
 
     gauge: async (_, { gaugeId }) => {
-      return Gauge.findOne({ _id: gaugeId }).populate('category');
+      return Gauge.findOne({ _id: gaugeId })
+      .populate('category');
     },
 
 
