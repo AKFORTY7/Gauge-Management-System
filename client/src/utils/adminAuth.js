@@ -2,12 +2,15 @@ import decode from 'jwt-decode';
 
 class AdminAuthService {
   adminGetProfile() {
-    return decode(this.getToken());
+   
+    return decode(this.getAdminToken());
   }
 
   adminLoggedIn() {
-    const token = this.getToken();
+    const token = this.getAdminToken();
     // If there is a token and it's not expired, return `true`
+    console.log('The token is:  ',token);
+    console.log("Admin is logged in");
     return token && !this.isTokenExpired(token) ? true : false;
   }
 
@@ -24,6 +27,7 @@ class AdminAuthService {
   }
 
   getAdminToken() {
+    console.log("Admin token had been retrieved");
     return localStorage.getItem('admin_id_token');
   }
 

@@ -24,8 +24,8 @@ module.exports = {
 
     return req;
   },
-  adminSignToken: function ({ email, adminname, _id }) {
-    const payload = { email,adminname, _id };
+  adminSignToken: function ({ adminEmail, adminName, _id }) {
+    const payload = { adminEmail,adminName, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
