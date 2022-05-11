@@ -6,7 +6,7 @@ import { LOGIN_ADMIN } from '../utils/mutations';
 import Auth from '../utils/adminAuth';
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ adminEmail: '', adminPassword: '' });
   const [login, { error, data }] = useMutation(LOGIN_ADMIN);
 
   // update state based on form input changes
@@ -35,8 +35,8 @@ const Login = (props) => {
 
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      adminEmail: '',
+      adminPassword: '',
     });
   };
 
@@ -56,7 +56,7 @@ const Login = (props) => {
                 <input
                   className="form-input"
                   placeholder="Your email"
-                  name="email"
+                  name="adminEmail"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
@@ -64,7 +64,7 @@ const Login = (props) => {
                 <input
                   className="form-input"
                   placeholder="******"
-                  name="password"
+                  name="adminPassword"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
