@@ -22,18 +22,20 @@ const Header = () => {
         </div>
 
         <div>
-          {adminAuth.adminLoggedIn() ? (
+          {Auth.loggedIn() ? (
             <>
-            
-              {/* <Link className="btn btn-lg btn-info m-2" to="/me">
-              {adminAuth.adminGetProfile().data.adminName}'s profile
-              </Link> */}
+                          <Link className="btn btn-lg btn-info m-2" to="/me">
+              {Auth.getProfile().data.username}'s profile
+              </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
+             <Link className="btn btn-lg btn-info m-2" to="login">
+                User Login
+              </Link>
               <Link className="btn btn-lg btn-info m-2" to="/admin/login">
                 Admin Login
               </Link>

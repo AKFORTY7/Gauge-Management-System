@@ -1,10 +1,12 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
+//import { Link } from 'react-router-dom';
 
 import ThoughtList from '../components/GaugeList';
-import ThoughtForm from '../components/GaugeForm';
+//import ThoughtForm from '../components/GaugeForm';
 import SelectionHeader from '../components/AdminForms/selectionHeader';
 import adminAuth from '../utils/adminAuth';
+import Auth from '../utils/auth';
 
 import { QUERY_CATEGORIES, QUERY_GAUGES, QUERY_USER } from '../utils/queries';
 
@@ -34,17 +36,31 @@ const Admin = () => {
                         {loading || loading1 || loading2 ? (
                             <div>Loading...</div>
                         ) : (
-                            <ThoughtList
-                                gauges={gauges}
-                                categories={categories}
-                                title="Gauge List..."
-                            />
+                            <>
+                                {
+                                    Auth.loggedIn() ? (
+                                        <>
+                                            <ThoughtList
+                                                gauges={gauges}
+                                                categories={categories}
+                                                title="Gauge List..."
+                                            />
+
+                                        </>
+                                    ) : (
+                                        <>
+                                            Administrator log in needed.
+                                        </>
+                                    )
+                                }
+                            </>
                         )}
                     </div>
+                   
                 </div>
             </div>
             <div>
-            {/* {adminAuth.adminLoggedIn() ? (<p>Loggedin</p>) : (<p>Not loggedIn</p>)} */}
+
             </div>
         </div>
     );
