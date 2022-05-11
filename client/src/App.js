@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
+import Admin from './pages/Admin'
 import Login from './pages/Login';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
@@ -58,7 +59,7 @@ function App() {
               />
               <Route 
                 path="/admin"
-                element={<Signup />}
+                element={<Admin />}
               />
               <Route 
                 path="/me"

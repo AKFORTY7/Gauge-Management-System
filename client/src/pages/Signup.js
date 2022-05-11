@@ -42,7 +42,60 @@ const Signup = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+        <h4 className="card-header bg-dark text-light p-2">Add New Gauge</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Gauge Name"
+                  name="gaugename"
+                  type="text"
+                  value={formState.name}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Quantity"
+                  name="quantity"
+                  type="number"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="In-house P/N"
+                  name="inhouse_PN"
+                  type="text"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: 'pointer' }}
+                  name="new_gauge_submit"
+                  type="submit"
+                >
+                  Add Gauge
+                </button>
+              </form>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+
+        </div>
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Add New User</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -80,7 +133,7 @@ const Signup = () => {
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
-                  Submit
+                  Add User
                 </button>
               </form>
             )}
