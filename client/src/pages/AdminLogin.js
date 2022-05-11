@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_ADMIN } from '../utils/mutations';
 
-import Auth from '../utils/adminAuth';
+import adminAuth from '../utils/adminAuth';
 
-const Login = (props) => {
+const LogAdmin = (props) => {
   const [formState, setFormState] = useState({ adminEmail: '', adminPassword: '' });
-  const [login, { error, data }] = useMutation(LOGIN_ADMIN);
+  const [adminLogin, { error, data }] = useMutation(LOGIN_ADMIN);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -24,11 +24,13 @@ const Login = (props) => {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await login({
+      const { data } = await adminLogin({
         variables: { ...formState },
       });
-
-      Auth.login(data.login.token);
+      console.log('The data is ', data);
+      console.log('The data.login.token is ', data.adminlogin.token);
+      adminAuth.adminLogin(data.adminlogin.token);
+     
     } catch (e) {
       console.error(e);
     }
@@ -91,4 +93,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default LogAdmin;
