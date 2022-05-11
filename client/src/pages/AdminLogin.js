@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { LOGIN_ADMIN } from '../utils/mutations';
 
-import Auth from '../utils/auth';
+import Auth from '../utils/adminAuth';
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [formState, setFormState] = useState({ adminEmail: '', adminPassword: '' });
+  const [login, { error, data }] = useMutation(LOGIN_ADMIN);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -35,8 +35,8 @@ const Login = (props) => {
 
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      adminEmail: '',
+      adminPassword: '',
     });
   };
 
@@ -44,7 +44,7 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">User Login</h4>
+          <h4 className="card-header bg-dark text-light p-2">Admin Login</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -56,7 +56,7 @@ const Login = (props) => {
                 <input
                   className="form-input"
                   placeholder="Your email"
-                  name="email"
+                  name="adminEmail"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
@@ -64,7 +64,7 @@ const Login = (props) => {
                 <input
                   className="form-input"
                   placeholder="******"
-                  name="password"
+                  name="adminPassword"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
