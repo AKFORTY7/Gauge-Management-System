@@ -1,17 +1,17 @@
 import decode from 'jwt-decode';
 
-class AuthService {
-  getProfile() {
+class AdminAuthService {
+  adminGetProfile() {
     return decode(this.getToken());
   }
 
-  loggedIn() {
+  adminLoggedIn() {
     const token = this.getToken();
     // If there is a token and it's not expired, return `true`
     return token && !this.isTokenExpired(token) ? true : false;
   }
 
-  isTokenExpired(token) {
+  isAdminTokenExpired(token) {
     // Decode the token to get its expiration time that was set by the server
     const decoded = decode(token);
     // If the expiration time is less than the current time (in seconds), the token is expired and we return `true`
@@ -23,19 +23,19 @@ class AuthService {
     return false;
   }
 
-  getToken() {
+  getAdminToken() {
     return localStorage.getItem('id_token');
   }
 
-  login(idToken) {
+  adminLogin(idToken) {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/');
   }
 
-  logout() {
+  adminLogout() {
     localStorage.removeItem('id_token');
     window.location.reload();
   }
 }
 
-export default new AuthService();
+export default new AdminAuthService();
