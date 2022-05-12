@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
+import { ADD_USER } from '../../utils/mutations';
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
-const Signup = () => {
+const UserForm = () => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
@@ -39,15 +39,16 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <div className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
+            THIS IS THE USER FORM
           <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                User {formState.username} had been added....
+                {/* <Link to="/">back to the homepage.</Link> */}
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -93,8 +94,8 @@ const Signup = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
-export default Signup;
+export default UserForm;
