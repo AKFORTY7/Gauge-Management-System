@@ -19,6 +19,11 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+
+  isAdmin: {
+    type: Boolean,
+  }
+
 });
 
 userSchema.pre('save', async function (next) {

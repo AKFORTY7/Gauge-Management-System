@@ -11,6 +11,7 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
+    isAdmin: Boolean!
   }
 
   type Admin{
