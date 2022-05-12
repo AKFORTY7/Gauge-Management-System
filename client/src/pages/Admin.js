@@ -22,7 +22,7 @@ const Admin = () => {
     const { loading2, data2 } = useQuery(QUERY_USER);
     const users = data2?.users || [];
 
-    const [active, setActive] = useState('Gauge');
+    const [active, setActive] = useState('');
 
     return (
         <div>
