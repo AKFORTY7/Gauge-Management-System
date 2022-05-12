@@ -12,10 +12,11 @@ class AuthService {
     return token && !this.isTokenExpired(token) ? true : false;
   }
 
-  isAdmin(){
-    return decode(this.getToken()).isAdmin;
-
-  }
+   isAdmin(){
+     const decoded = decode(this.getToken()).isAdmin;
+     console.log(decoded);
+     return decoded;
+   }
 
 
   isTokenExpired(token) {

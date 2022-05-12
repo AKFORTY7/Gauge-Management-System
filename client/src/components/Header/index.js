@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
-import adminAuth from '../../utils/adminAuth';
+
 
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
-    adminAuth.adminLogout();
+
   };
 
   return (
@@ -35,9 +35,6 @@ const Header = () => {
             <>
              <Link className="btn btn-lg btn-info m-2" to="login">
                 User Login
-              </Link>
-              <Link className="btn btn-lg btn-info m-2" to="/admin/login">
-                Admin Login
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
