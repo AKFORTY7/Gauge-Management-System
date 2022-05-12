@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations';
+import { ADD_USER as ADD_GAUGE } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+//import Auth from '../../utils/auth';
 
 const GaugeForm = () => {
   const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
+    gaugeName: '',
+    category: '',
+    currentInventory: '',
   });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [addGauge, { error, data }] = useMutation(ADD_GAUGE);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,11 +28,11 @@ const GaugeForm = () => {
     console.log(formState);
 
     try {
-      const { data } = await addUser({
+      const { data } = await addGauge({
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
+      //Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -42,8 +42,7 @@ const GaugeForm = () => {
     <div className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-            THIS IS THE GAUGE FORM
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+          <h4 className="card-header bg-dark text-light p-2">ADD NEW GAUGE</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -54,25 +53,25 @@ const GaugeForm = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
-                  name="username"
+                  placeholder="Gauge name"
+                  name="gaugeName"
                   type="text"
                   value={formState.name}
                   onChange={handleChange}
                 />
                 <input
                   className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
+                  placeholder="Category"
+                  name="category"
+                  type="ID"
                   value={formState.email}
                   onChange={handleChange}
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
+                  placeholder="Qty"
+                  name="currentInventory"
+                  type="int"
                   value={formState.password}
                   onChange={handleChange}
                 />

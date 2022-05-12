@@ -25,7 +25,7 @@ const Admin = () => {
     const [active, setActive] = useState('');
 
     return (
-        <div>
+        <div  >
             <div className="flex-row justify-center">
 
                 <div className="col-12 col-md-8 mb-3">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_CATEGORY } from '../../utils/mutations';
@@ -44,13 +44,13 @@ const CategoryForm = () => {
             {data ? (
               <p>
                 New Category Added
-                {window.location.reload()}
+                {window.location.reload}
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Gauge Name"
+                  placeholder="Category name"
                   name="categoryName"
                   type="text"
                   value={formState.name}

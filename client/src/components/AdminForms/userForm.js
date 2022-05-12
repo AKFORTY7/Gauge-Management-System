@@ -42,7 +42,6 @@ const UserForm = () => {
     <div className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-            THIS IS THE USER FORM
           <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
@@ -54,8 +53,8 @@ const UserForm = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
-                  name="username"
+                  placeholder="Gauge name"
+                  name="gauge_name"
                   type="text"
                   value={formState.name}
                   onChange={handleChange}
@@ -63,8 +62,8 @@ const UserForm = () => {
                 <input
                   className="form-input"
                   placeholder="Your email"
-                  name="email"
-                  type="email"
+                  name="category_ID"
+                  type="ID"
                   value={formState.email}
                   onChange={handleChange}
                 />
