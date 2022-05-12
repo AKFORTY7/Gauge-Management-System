@@ -8,10 +8,8 @@ import Auth from '../../utils/auth';
 
 const CategoryForm = () => {
   const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
+    category_name: '',
+   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {

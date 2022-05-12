@@ -54,7 +54,10 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth 
     addAdmin(adminName: String!, adminEmail: String!, adminPassword: String!): AuthAdmin
-    adminlogin(adminEmail: String!, adminPassword: String!): AuthAdmin
+    adminLogin(adminEmail: String!, adminPassword: String!): AuthAdmin
+    addGauge(gauge_name: String!, category: ID!, current_inventory: Int!, inhouse_PN: Int) : Gauge
+    addCategory(category_name: String!) : Category
+
   }
 `;
 

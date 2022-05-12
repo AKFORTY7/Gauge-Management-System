@@ -32,7 +32,7 @@ const resolvers = {
 
     gauge: async (_, { gaugeId }) => {
       return Gauge.findOne({ _id: gaugeId })
-      .populate('category');
+        .populate('category');
     },
 
 
@@ -62,6 +62,16 @@ const resolvers = {
       return { token, admin };
     },
 
+    addGauge: async (_, { gauge_name, category, current_inventory, inhouse_PN }) => {
+      const gauge = await Gauge.create({ gauge_name, category, current_inventory, inhouse_PN });
+      return gauge;
+    },
+
+    addCategory: async (_, {category_name}) => {
+      const category = await Category.create({ category_name });
+      return category;
+    },
+
 
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
@@ -82,7 +92,7 @@ const resolvers = {
     },
 
 
-    adminlogin: async (_, { adminEmail, adminPassword }) => {
+    adminLogin: async (_, { adminEmail, adminPassword }) => {
       const admin = await Admin.findOne({ adminEmail });
 
       if (!admin) {

@@ -38,16 +38,38 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_GAUGE = gql`
-  mutation addThought($gaugeText: String!) {
-    addgauge(gaugeText: $gaugeText) {
+  mutation AddGauge($gaugeName: String!, $category: ID!, $currentInventory: Int!) {
+    addGauge(gauge_name: $gaugeName, category: $category, current_inventory: $currentInventory) {
       _id
       gauge_name
-      category
-      current_inventory
-      inhouse_PN
+      category {
+       _id
+     }
     }
   }
 `;
+
+// {  "gaugeName": "M10 x 1.0 -6g",
+//   "category": "627cd6673dd5721c609edc64",
+//   "currentInventory": 3
+// }
+
+export const ADD_CATEGORY = gql`
+  mutation addCategory($categoryName: String!) {
+    addCategory(category_name: $categoryName) {
+      _id
+      category_name
+    }
+  }
+`;
+
+// {
+//   "categoryName": "bolts"
+// }
+
+
+
+
 
 export const BORROW_GAUGE = gql`
   mutation addThought($gaugeText: String!) {
@@ -60,6 +82,8 @@ export const BORROW_GAUGE = gql`
     }
   }
 `;
+
+
 
 export const ADD_COMMENT = gql`
   mutation addComment($thoughtId: ID!, $commentText: String!) {
