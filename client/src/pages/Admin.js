@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 //import { Link } from 'react-router-dom';
 
-import GaugeForm from '../components/AdminForms/GaugeForm';
-import CategoryForm from '../components/AdminForms/CategoryForm';
-import UserForm from '../components/AdminForms/UserForm';
+import GaugeForm from '../components/AdminForms/gaugeForm';
+import CategoryForm from '../components/AdminForms/categoryForm';
+import UserForm from '../components/AdminForms/userForm';
 
 
 //import adminAuth from '../utils/adminAuth';
