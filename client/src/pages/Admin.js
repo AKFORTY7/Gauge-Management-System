@@ -25,7 +25,7 @@ const Admin = () => {
     const [active, setActive] = useState('');
 
     return (
-        <div  >
+        <div>
             <div className="flex-row justify-center">
 
                 <div className="col-12 col-md-8 mb-3">
@@ -54,7 +54,7 @@ const Admin = () => {
                                             {/* Display items based on button clicked */}
                                             {active === "Gauge" && <GaugeForm gauges={gauges} />}
                                             {active === "Category" && <CategoryForm categories={categories} />}
-                                            {active === "User" && <UserForm users={users} />}
+                                            {active === "User" && <UserForm users={users} gauges={gauges} title="Users" />}
                                         </div>
                                     </>
                                 ) : (

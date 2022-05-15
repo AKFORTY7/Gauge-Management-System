@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import ThoughtList from '../components/GaugeList';
-import ThoughtForm from '../components/GaugeForm';
+import GaugeList from '../components/GaugeList';
+import GaugeForm from '../components/GaugeForm';
 
 import { QUERY_CATEGORIES, QUERY_GAUGES } from '../utils/queries';
 
@@ -22,13 +22,13 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <ThoughtForm />
+          <GaugeForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading || loading1 ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
+            <GaugeList
               gauges={gauges}
               categories = {categories}
               title="Gauge List..."

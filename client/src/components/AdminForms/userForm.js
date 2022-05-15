@@ -6,7 +6,7 @@ import { ADD_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const UserForm = () => {
+const UserForm = (users, gauges, title) => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
@@ -91,6 +91,10 @@ const UserForm = () => {
               </div>
             )}
           </div>
+        </div>
+        <div>
+          This is the list of users
+
         </div>
       </div>
     </div>

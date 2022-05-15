@@ -18,9 +18,9 @@ const ThoughtList = ({ gauges, title }) => {
         <div key={gauge._id} className="card mb-3">
 
           <h4 className="card-header bg-primary text-light p-2 m-0">
-            {gauge.gauge_name} 
+            {gauge.gauge_name}
             <div>
-            {gauge.category.category_name} <br />
+              {gauge.category.category_name} <br />
             </div>
           </h4>
           <div className="card-body bg-light p-2">
@@ -37,8 +37,7 @@ const ThoughtList = ({ gauges, title }) => {
             See details.
           </Link>
         </div>
-      )
-      )
+      ))
       }
     </div>
   );
