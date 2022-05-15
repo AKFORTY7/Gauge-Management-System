@@ -82,12 +82,13 @@ const resolvers = {
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      console.log(user);
+      
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
       console.log('The current user data is:  ', user);
+      console.log('Is this an admin?:  ', user.isAdmin);
       const token = signToken(user);
 
       return { token, user };

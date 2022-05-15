@@ -1,35 +1,32 @@
 import decode from 'jwt-decode';
 
 class AuthService {
-  // getProfile = async() => {
-  //   return decode(this.getToken());
-  //   // const decoded = await decode(this.getToken());
-  //   // return decoded;
-  // }
 
-  getProfile () {
+  getProfile() {
     return decode(this.getToken());
-    // const decoded = await decode(this.getToken());
-    // return decoded;
+
   }
 
   loggedIn() {
     const token = this.getToken();
+ 
   
+
     // If there is a token and it's not expired, return `true`
     return token && !this.isTokenExpired(token) ? true : false;
   }
 
-   isAdmin(){
-     const decoded = decode(this.getToken()).isAdmin;
-     console.log(decoded);
-     return decoded;
-   }
+  isAdmin() {
+    const decoded = decode(this.getToken()).data.isAdmin;
+    console.log(decoded);
+    return decoded;
+  }
 
 
   isTokenExpired(token) {
     // Decode the token to get its expiration time that was set by the server
     const decoded = decode(token);
+
     // If the expiration time is less than the current time (in seconds), the token is expired and we return `true`
     if (decoded.exp < Date.now() / 1000) {
       localStorage.removeItem('id_token');
@@ -45,12 +42,14 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    const decoded = decode(this.getToken()).data.isAdmin;
+    // Decides which route to go depending on user or admin
+    decoded ?  window.location.assign('/admin') : window.location.assign('/');
   }
 
   logout() {
     localStorage.removeItem('id_token');
-    window.location.reload();
+    window.location.assign('/login');
   }
 }
 

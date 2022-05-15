@@ -34,7 +34,8 @@ const Admin = () => {
                     ) : (
                         <>
                             {
-                                Auth.loggedIn() && Auth.isAdmin() ? (
+                                // Auth.loggedIn() && Auth.isAdmin() ? (
+                                Auth.isAdmin() ? (
                                     <>
                                         <div className="col-12 col-md-10 mb-3 p-3" style={{ border: '1px dotted #1a1a1a' }}>
                                             <div className="container flex-row justify-space-between-lg justify-center align-center"  >
