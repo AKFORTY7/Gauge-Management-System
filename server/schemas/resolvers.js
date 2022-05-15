@@ -67,7 +67,7 @@ const resolvers = {
       return gauge;
     },
 
-    addCategory: async (_, {category_name}) => {
+    addCategory: async (_, { category_name }) => {
       const category = await Category.create({ category_name });
       return category;
     },
@@ -77,15 +77,17 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+       
+        throw new AuthenticationError('No user found with this email address.');
       }
 
       const correctPw = await user.isCorrectPassword(password);
-
+      console.log(user);
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
+      console.log('The current user data is:  ', user);
       const token = signToken(user);
 
       return { token, user };

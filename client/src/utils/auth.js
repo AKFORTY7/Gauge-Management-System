@@ -1,8 +1,16 @@
 import decode from 'jwt-decode';
 
 class AuthService {
-  getProfile() {
+  // getProfile = async() => {
+  //   return decode(this.getToken());
+  //   // const decoded = await decode(this.getToken());
+  //   // return decoded;
+  // }
+
+  getProfile () {
     return decode(this.getToken());
+    // const decoded = await decode(this.getToken());
+    // return decoded;
   }
 
   loggedIn() {
