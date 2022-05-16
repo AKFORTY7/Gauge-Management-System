@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
-import { ADD_USER as ADD_GAUGE } from '../../utils/mutations';
+import { ADD_GAUGE} from '../../utils/mutations';
+//import { addTypenameToDocument } from '@apollo/client/utilities';
 
 //import Auth from '../../utils/auth';
 
@@ -18,6 +19,7 @@ const GaugeForm = ({ gauges }) => {
 
 
   const [addGauge, { error, data }] = useMutation(ADD_GAUGE);
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,6 +48,21 @@ const GaugeForm = ({ gauges }) => {
   if (!gauges.length) {
     return <h3>No Gauges Yet</h3>;
   };
+
+ 
+  //Delete gauge
+  // const removeGauge = id => {
+  //   // const removeArr = [...gauges].filter(gauge => gauge.id !== id )
+  //   alert('remove function executed');
+  //   try{
+  //     return
+  //   }
+  //   catch(err){
+  //     return err;
+  //   }
+    
+  // }
+
 
   return (
     <div className="flex-row justify-center mb-4">
@@ -122,8 +139,8 @@ const GaugeForm = ({ gauges }) => {
                 >
                   See details.
                 </Link>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button >Edit</button>
+                <button >Delete</button>
               </div>
             ))
             }

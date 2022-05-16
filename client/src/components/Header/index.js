@@ -28,6 +28,7 @@ const Header = () => {
                 {Auth.getProfile().data.username}'s profile
               </Link>
 
+              {/* Show admin page link for navigation to admin page */}
               {Auth.isAdmin() ?
                 (<> <Link className="btn btn-lg btn-info m-2" to="/admin">
                   Admin Page

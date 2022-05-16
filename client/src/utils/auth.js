@@ -18,7 +18,7 @@ class AuthService {
 
   isAdmin() {
     const decoded = decode(this.getToken()).data.isAdmin;
-    console.log(decoded);
+  
     return decoded;
   }
 

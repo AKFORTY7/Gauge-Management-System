@@ -13,23 +13,28 @@ import Auth from '../utils/auth';
 import { QUERY_CATEGORIES, QUERY_GAUGES, QUERY_USER } from '../utils/queries';
 
 const Admin = () => {
-    const { loading, data } = useQuery(QUERY_GAUGES);
-    const gauges = data?.gauges || [];
+   
 
     const { loading1, data1 } = useQuery(QUERY_CATEGORIES);
     const categories = data1?.categories || [];
+    console.log('This is the list of categories', categories);
+
+    const { loading, data } = useQuery(QUERY_GAUGES);
+    const gauges = data?.gauges || [];
+    console.log('This is the list of gauges' , gauges);
 
     const { loading2, data2 } = useQuery(QUERY_USER);
     const users = data2?.users || [];
+    console.log('This is the list of users' , users);
 
-    const [active, setActive] = useState('');
+    const [active, setActive] = useState('Gauge');
 
     return (
         <div>
             <div className="flex-row justify-center">
 
                 <div className="col-12 col-md-8 mb-3">
-                    {loading || loading1 || loading2 ? (
+                    {loading1 && loading && loading2 ? (
                         <div>Loading...</div>
                     ) : (
                         <>

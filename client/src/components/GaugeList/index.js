@@ -29,7 +29,7 @@ const ThoughtList = ({ gauges, title }) => {
               Quantity borrowed:  {gauge.quantity_borrowed} pc(s) */}
             </span>
           </div>
-          {/* Create a link to this thought's page to view its comments using `<Link>` component */}
+          {/* Create a link to this gauge's page to view its comments using `<Link>` component */}
           <Link
             className="btn btn-primary btn-block btn-squared"
             to={`/gauges/${gauge._id}`}

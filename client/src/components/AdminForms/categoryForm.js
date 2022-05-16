@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 //import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
 
 import { useMutation } from '@apollo/client';
 import { ADD_CATEGORY } from '../../utils/mutations';
+import { QUERY_CATEGORIES } from '../../utils/queries';
 
 
-const CategoryForm = () => {
+const CategoryForm = ({categories}) => {
+
   const [formState, setFormState] = useState({
     category_name: '',
    });
   const [addCategory, { error, data }] = useMutation(ADD_CATEGORY);
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -29,7 +33,6 @@ const CategoryForm = () => {
         variables: { ...formState },
       });
 
-      //Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -43,8 +46,7 @@ const CategoryForm = () => {
           <div className="card-body">
             {data ? (
               <p>
-                New Category Added
-                {window.location.reload}
+                {window.location.assign('/admin')}
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -72,6 +74,20 @@ const CategoryForm = () => {
               </div>
             )}
           </div>
+        </div>
+        <div className='card'>
+        {categories && categories.map((category) => (
+              <div key={category._id} className="card mb-3">
+                <h4 className="card-header bg-primary text-light p-2 m-0">
+                  {category.category_name}
+                
+                </h4>
+
+                <button >Edit</button>
+                <button >Delete</button>
+              </div>
+            ))
+            }
         </div>
       </div>
     </div>
