@@ -11,6 +11,7 @@ const UserForm = ({ users }) => {
     username: '',
     email: '',
     password: '',
+    isAdmin:''
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -25,17 +26,35 @@ const UserForm = ({ users }) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
 
     try {
       const { data } = await addUser({
         variables: { ...formState },
       });
-
+      console.log('The formstate values are', ...formState);
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
+  };
+  const [checked, setChecked] = useState(false);
+
+  const tickChange = () => {
+    setChecked(!checked);
+  };
+
+  const Checkbox = ({ label, value, onChange }) => {
+
+    formState.isAdmin = value;
+    console.log('The formState is: ', formState.isAdmin);
+
+    return (
+      <label>
+        <input type="checkbox" checked={value} onChange={onChange} />
+        {label}
+      </label>
+    );
   };
 
   return (
@@ -47,14 +66,14 @@ const UserForm = ({ users }) => {
             {data ? (
               <p>
                 User {formState.username} had been added....
-                {/* <Link to="/">back to the homepage.</Link> */}
+                
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Gauge name"
-                  name="gauge_name"
+                  placeholder="Username"
+                  name="username"
                   type="text"
                   value={formState.name}
                   onChange={handleChange}
@@ -62,8 +81,8 @@ const UserForm = ({ users }) => {
                 <input
                   className="form-input"
                   placeholder="Your email"
-                  name="category_ID"
-                  type="ID"
+                  name="email"
+                  type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
@@ -75,6 +94,8 @@ const UserForm = ({ users }) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <Checkbox 
+                label = "Admin" name='isAdmin' value = {checked} onChange={tickChange}/>
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: 'pointer' }}
