@@ -16,12 +16,12 @@ const Admin = () => {
    
     const { loading, data } = useQuery(QUERY_CATEGORIES);
     const categories = data?.categories || [];
-    //console.log('This is the list of gauges' , gauges);
+  
 
 
     const gaugesArray = useQuery(QUERY_GAUGES);
     const gauges = gaugesArray?.data?.gauges || [];
-    //console.log('This is the list of categories', categories);
+   
 
 
     const usersArray = useQuery(QUERY_USERS);
