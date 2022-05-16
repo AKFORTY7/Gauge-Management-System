@@ -51,10 +51,7 @@ export const ADD_GAUGE = gql`
   }
 `;
 
-// {  "gaugeName": "M10 x 1.0 -6g",
-//   "category": "627cd6673dd5721c609edc64",
-//   "currentInventory": 3
-// }
+
 
 export const ADD_CATEGORY = gql`
   mutation addCategory($categoryName: String!) {
@@ -64,11 +61,6 @@ export const ADD_CATEGORY = gql`
     }
   }
 `;
-
-// {
-//   "categoryName": "bolts"
-// }
-
 
 
 

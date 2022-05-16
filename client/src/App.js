@@ -12,7 +12,7 @@ import Home from './pages/Home';
 //import Signup from './pages/Signup';
 //import AdminLogin from './pages/AdminLogin'
 import Login from './pages/Login';
-import SingleThought from './pages/SingleThought';
+import SingleGauge from './pages/SingleGauge';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -72,7 +72,7 @@ function App() {
               />
               <Route
                 path="/gauges/:gaugeId"
-                element={<SingleThought />}
+                element={<SingleGauge />}
               />
             </Routes>
           </div>

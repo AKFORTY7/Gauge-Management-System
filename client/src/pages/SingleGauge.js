@@ -4,8 +4,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import CommentList from '../components/CommentList';
-import CommentForm from '../components/CommentForm';
+
 
 import { QUERY_SINGLE_GAUGE } from '../utils/queries';
 
@@ -50,16 +49,23 @@ const SingleThought = () => {
             lineHeight: '1.5',
           }}
         >
-          {gauge.gauge_name}
         </blockquote>
+        <div className='flex-row justify-center'>
+        <button>Borrow +</button>
+        <button>Borrow - </button>
+        <button>Submit</button>
+        </div>
       </div>
 
-      <div className="my-5">
+
+
+
+      {/* <div className="my-5">
         <CommentList gauges={gauge.gauge_name} />
       </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <CommentForm gaugeId={gauge._id} />
-      </div>
+      </div> */}
     </div>
   );
 };
