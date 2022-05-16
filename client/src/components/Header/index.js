@@ -29,7 +29,7 @@ const Header = () => {
               </Link>
 
               {/* Show admin page link for navigation to admin page */}
-              {Auth.isAdmin() ?
+              {Auth.loggedIn && Auth.isAdmin() ?
                 (<> <Link className="btn btn-lg btn-info m-2" to="/admin">
                   Admin Page
                 </Link></>) : (<></>)
