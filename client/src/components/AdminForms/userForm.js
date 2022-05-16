@@ -6,7 +6,7 @@ import { ADD_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const UserForm = (users, gauges, title) => {
+const UserForm = ({ users }) => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
@@ -92,9 +92,19 @@ const UserForm = (users, gauges, title) => {
             )}
           </div>
         </div>
-        <div>
-          This is the list of users
+        <div className='card'>
+        {users && users.map((user) => (
+              <div key={user._id} className="card mb-3">
+                <h4 className="card-header bg-primary text-light p-2 m-0">
+                  {user.username}
+                
+                </h4>
 
+                <button >Edit</button>
+                <button >Delete</button>
+              </div>
+            ))
+            }
         </div>
       </div>
     </div>

@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-//import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
 
 import { useMutation } from '@apollo/client';
 import { ADD_CATEGORY } from '../../utils/mutations';
-import { QUERY_CATEGORIES } from '../../utils/queries';
 
 
 const CategoryForm = ({categories}) => {
@@ -37,6 +34,12 @@ const CategoryForm = ({categories}) => {
       console.error(e);
     }
   };
+
+  if (!categories.length) {
+    return <h3>No Categories Yet</h3>;
+  };
+
+  console.log(categories);
 
   return (
     <div className="flex-row justify-center mb-4">

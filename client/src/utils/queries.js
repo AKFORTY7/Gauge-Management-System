@@ -1,5 +1,18 @@
 import { gql } from '@apollo/client';
 
+
+export const QUERY_USERS = gql`
+  query Users {
+    users {
+      _id
+     username
+     email
+      isAdmin
+   }
+  }
+`;
+
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
@@ -21,7 +34,7 @@ query categories {
 `;
 
 export const QUERY_GAUGES = gql`
-  query gauges {
+  query Gauges {
     gauges {
     _id
     gauge_name

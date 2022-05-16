@@ -49,19 +49,6 @@ const GaugeForm = ({ gauges }) => {
     return <h3>No Gauges Yet</h3>;
   };
 
- 
-  //Delete gauge
-  // const removeGauge = id => {
-  //   // const removeArr = [...gauges].filter(gauge => gauge.id !== id )
-  //   alert('remove function executed');
-  //   try{
-  //     return
-  //   }
-  //   catch(err){
-  //     return err;
-  //   }
-    
-  // }
 
 
   return (

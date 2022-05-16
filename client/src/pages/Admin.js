@@ -10,21 +10,22 @@ import UserForm from '../components/AdminForms/userForm';
 //import adminAuth from '../utils/adminAuth';
 import Auth from '../utils/auth';
 
-import { QUERY_CATEGORIES, QUERY_GAUGES, QUERY_USER } from '../utils/queries';
+import { QUERY_CATEGORIES, QUERY_GAUGES, QUERY_USERS } from '../utils/queries';
 
 const Admin = () => {
    
+    const { loading, data } = useQuery(QUERY_CATEGORIES);
+    const categories = data?.categories || [];
+    //console.log('This is the list of gauges' , gauges);
 
-    const { loading1, data1 } = useQuery(QUERY_CATEGORIES);
-    const categories = data1?.categories || [];
-    console.log('This is the list of categories', categories);
 
-    const { loading, data } = useQuery(QUERY_GAUGES);
-    const gauges = data?.gauges || [];
-    console.log('This is the list of gauges' , gauges);
+    const gaugesArray = useQuery(QUERY_GAUGES);
+    const gauges = gaugesArray?.data?.gauges || [];
+    //console.log('This is the list of categories', categories);
 
-    const { loading2, data2 } = useQuery(QUERY_USER);
-    const users = data2?.users || [];
+
+    const usersArray = useQuery(QUERY_USERS);
+    const users = usersArray?.data?.users || [];
     console.log('This is the list of users' , users);
 
     const [active, setActive] = useState('Gauge');
@@ -34,7 +35,7 @@ const Admin = () => {
             <div className="flex-row justify-center">
 
                 <div className="col-12 col-md-8 mb-3">
-                    {loading1 && loading && loading2 ? (
+                    {loading ? (
                         <div>Loading...</div>
                     ) : (
                         <>
@@ -59,7 +60,7 @@ const Admin = () => {
                                             {/* Display items based on button clicked */}
                                             {active === "Gauge" && <GaugeForm gauges={gauges} />}
                                             {active === "Category" && <CategoryForm categories={categories} />}
-                                            {active === "User" && <UserForm users={users} gauges={gauges} title="Users" />}
+                                            {active === "User" && <UserForm users={users}/>}
                                         </div>
                                     </>
                                 ) : (
