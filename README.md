@@ -40,7 +40,7 @@ This application was aimed to reduce and eliminate such concerns…
 - Create a .gitignore file (under root directory) and must contain:
 
 
--/node_modules
+`-/node_modules`
 -node_modules/
 -/server/node_modules
 -/client/node_modules
