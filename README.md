@@ -39,21 +39,15 @@ This application was aimed to reduce and eliminate such concerns…
      
 - Create a .gitignore file (under root directory) and must contain:
 
-# dependencies
+
 /node_modules
 node_modules/
 /server/node_modules
 /client/node_modules
 /.pnp
 .pnp.js
-
-# testing
 /coverage
-
-# production
 /build
-
-# misc
 .DS_Store
 .env
 .env.local
