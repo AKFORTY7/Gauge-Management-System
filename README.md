@@ -40,24 +40,23 @@ This application was aimed to reduce and eliminate such concerns…
 - Create a .gitignore file (under root directory) and must contain:
 
 
-/node_modules
-node_modules/
-/server/node_modules
-/client/node_modules
-/.pnp
-.pnp.js
-/coverage
-/build
-.DS_Store
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+-/node_modules
+-node_modules/
+-/server/node_modules
+-/client/node_modules
+-/.pnp
+-.pnp.js
+-/coverage
+-/build
+-.DS_Store
+-.env
+-.env.local
+-.env.development.local
+-.env.test.local
+-.env.production.local
+-npm-debug.log*
+-yarn-debug.log*
+-yarn-error.log*
 	      
 - Type 'npm start' (under root directory) to launch the application or type 'npm run develop'.
      
