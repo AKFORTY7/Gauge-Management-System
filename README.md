@@ -40,9 +40,9 @@ This application was aimed to reduce and eliminate such concerns…
 - Create a .gitignore file (under root directory) and must contain:
 
 
-`-/node_modules`
-`-node_modules/
--/server/node_modules`
+`-/node_modules
+-node_modules/
+-/server/node_modules
 -/client/node_modules
 -/.pnp
 -.pnp.js
@@ -56,7 +56,7 @@ This application was aimed to reduce and eliminate such concerns…
 -.env.production.local
 -npm-debug.log*
 -yarn-debug.log*
--yarn-error.log*
+-yarn-error.log*`
 	      
 - Type 'npm start' (under root directory) to launch the application or type 'npm run develop'.
      
