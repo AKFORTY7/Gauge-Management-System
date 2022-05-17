@@ -41,8 +41,8 @@ This application was aimed to reduce and eliminate such concerns…
 
 
 `-/node_modules`
--node_modules/
--/server/node_modules
+`-node_modules/
+-/server/node_modules`
 -/client/node_modules
 -/.pnp
 -.pnp.js
