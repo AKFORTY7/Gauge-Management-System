@@ -34,27 +34,30 @@ const UserForm = ({ users }) => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-      
+
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
   };
 
-  const delUser = (index, user_id) => {
-    //event.preventDefault();
-    console.log("delUser function is executed", {index}, user_id);
-    return
+  const delUser = async (index, user_id) => {
+    
+    console.log("delUser function is executed", index, {user_id});
+    //return
 
-    // try {
-    //   const { delete_user_data } = await deleteUser({
-    //     variables: {  },
-    //   });
-    //   console.log('The formstate values are', delete_user_data);
-    //   //Auth.login(delete_user_data.addUser.token);
-    // } catch (e) {
-    //   console.error(e);
-    // }
+    try {
+      const { delete_user_data } = await deleteUser({
+        variables:  {id: user_id} ,
+      });
+      //console.log('The formstate values are', delete_user_data);
+      //Auth.login(delete_user_data.addUser.token);
+
+      return ("deleted");
+    } catch (e) {
+      console.error(e);
+    }
+    return
   };
 
 
@@ -67,7 +70,7 @@ const UserForm = ({ users }) => {
   const Checkbox = ({ label, value, onChange }) => {
 
     formState.isAdmin = value;
-    
+
 
     return (
       <label>

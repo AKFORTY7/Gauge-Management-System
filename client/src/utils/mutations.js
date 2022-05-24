@@ -96,7 +96,7 @@ export const ADD_COMMENT = gql`
 `;
 
 export const DELETE_USER = gql`
-  mutation DeleteUser($id: ID!) {
+  mutation deleteUser($id: ID!) {
     deleteUser(_id: $id) {
       _id
    }
