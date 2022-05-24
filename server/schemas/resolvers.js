@@ -72,6 +72,13 @@ const resolvers = {
       return category;
     },
 
+    deleteUser: async (_, { _id: ID }) => {
+      await User.deleteOne({_id: ID});
+      return ("One user deleted");
+    },
+
+    
+
 
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });

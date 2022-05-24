@@ -58,6 +58,7 @@ const typeDefs = gql`
     adminLogin(adminEmail: String!, adminPassword: String!): AuthAdmin
     addGauge(gauge_name: String!, category: ID!, current_inventory: Int!, inhouse_PN: Int) : Gauge
     addCategory(category_name: String!) : Category
+    deleteUser(_id: ID!): User
 
   }
 `;
