@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 //import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
@@ -16,6 +16,8 @@ const UserForm = ({ users }) => {
 
   const [addUser, { error, data }] = useMutation(ADD_USER);
   const [deleteUser, { delete_user_error, delete_user_data }] = useMutation(DELETE_USER);
+
+  //useEffect{};
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -53,7 +55,7 @@ const UserForm = ({ users }) => {
       //console.log('The formstate values are', delete_user_data);
       //Auth.login(delete_user_data.addUser.token);
 
-      return ("deleted");
+      //UserForm();
     } catch (e) {
       console.error(e);
     }
