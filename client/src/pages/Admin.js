@@ -26,7 +26,7 @@ const Admin = () => {
 
     const usersArray = useQuery(QUERY_USERS);
     const users = usersArray?.data?.users || [];
-    console.log('This is the list of users' , users);
+   
 
     const [active, setActive] = useState('Gauge');
 

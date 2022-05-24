@@ -23,7 +23,7 @@ const CategoryForm = ({categories}) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    
 
     try {
       const { data } = await addCategory({
@@ -39,7 +39,7 @@ const CategoryForm = ({categories}) => {
     return <h3>No Categories Yet</h3>;
   };
 
-  console.log(categories);
+  
 
   return (
     <div className="flex-row justify-center mb-4">
